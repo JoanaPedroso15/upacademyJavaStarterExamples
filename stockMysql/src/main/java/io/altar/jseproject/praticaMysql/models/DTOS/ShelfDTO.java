@@ -9,7 +9,7 @@ public class ShelfDTO extends EntityDTO {
 	public ShelfDTO() {
 	}
 
-	public ShelfDTO(long id, int capacity, float dailyPrice, long productId) {
+	public ShelfDTO(Long id, int capacity, float dailyPrice, long productId) {
 		this.id = id;
 		this.capacity = capacity;
 		this.dailyPrice = dailyPrice;
