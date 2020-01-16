@@ -1,6 +1,6 @@
-package io.altar.jseproject.praticaMysql.models.DTOS;
+package io.altar.stockAngular.models.DTOS;
 
-import io.altar.jseproject.praticaMysql.models.Shelf;
+import io.altar.stockAngular.models.Shelf;
 
 public class ShelfDTO extends EntityDTO<Shelf> {
 	

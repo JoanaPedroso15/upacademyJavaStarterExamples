@@ -1,6 +1,6 @@
-package io.altar.jseproject.praticaMysql.models.DTOS;
+package io.altar.stockAngular.models.DTOS;
 
-import io.altar.jseproject.praticaMysql.models.Entity_;
+import io.altar.stockAngular.models.Entity_;
 
 public abstract class EntityDTO<E extends Entity_<?>> {
 
