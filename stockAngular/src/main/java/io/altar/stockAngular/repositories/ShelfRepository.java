@@ -1,12 +1,12 @@
-package io.altar.jseproject.praticaMysql.repositories;
+package io.altar.stockAngular.repositories;
 
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.TypedQuery;
 
-import io.altar.jseproject.praticaMysql.models.Shelf;
-import io.altar.jseproject.praticaMysql.models.DTOS.ShelfDTO;
+import io.altar.stockAngular.models.Shelf;
+import io.altar.stockAngular.models.DTOS.ShelfDTO;
 
 @ApplicationScoped
 public class ShelfRepository extends EntityRepository<Shelf, ShelfDTO> {

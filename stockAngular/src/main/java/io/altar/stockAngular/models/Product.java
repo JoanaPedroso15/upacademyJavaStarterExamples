@@ -1,4 +1,4 @@
-package io.altar.jseproject.praticaMysql.models;
+package io.altar.stockAngular.models;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
-import io.altar.jseproject.praticaMysql.models.DTOS.ProductDTO;
+import io.altar.stockAngular.models.DTOS.ProductDTO;
 
 @Entity
 @NamedQueries({ @NamedQuery(name = Product.GET_ALL_PRODUCTS, query = "SELECT p FROM Product p"),
@@ -29,7 +29,7 @@ public class Product extends Entity_<ProductDTO> {
 	private int iva;
 	private float pvp;
 
-	public static String getName() {
+	public static String getClassName() {
 		return "Product";
 	}
 

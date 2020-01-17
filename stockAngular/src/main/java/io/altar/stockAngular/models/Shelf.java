@@ -1,13 +1,12 @@
-package io.altar.jseproject.praticaMysql.models;
+package io.altar.stockAngular.models;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-import io.altar.jseproject.praticaMysql.models.DTOS.ShelfDTO;
+import io.altar.stockAngular.models.DTOS.ShelfDTO;
 
 @Entity
 @NamedQueries({ @NamedQuery(name = Shelf.GET_ALL_SHELVES, query = "SELECT e FROM Shelf e"),
@@ -27,16 +26,12 @@ public class Shelf extends Entity_<ShelfDTO> {
 
 	private static final long serialVersionUID = 1L;
 
-<<<<<<< HEAD
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-=======
 	@ManyToOne(fetch = FetchType.LAZY)
->>>>>>> e43637bda0e5b8bbac38ef024da91b09e612bc88
 	private Product product;
 	private int capacity;
 	private float dailyPrice;
 
-	public static String getName() {
+	public static String getClassName() {
 		return "Shelf";
 	}
 

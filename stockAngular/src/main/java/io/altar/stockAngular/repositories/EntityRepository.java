@@ -1,12 +1,12 @@
-package io.altar.jseproject.praticaMysql.repositories;
+package io.altar.stockAngular.repositories;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import io.altar.jseproject.praticaMysql.models.Entity_;
-import io.altar.jseproject.praticaMysql.models.DTOS.EntityDTO;
+import io.altar.stockAngular.models.Entity_;
+import io.altar.stockAngular.models.DTOS.EntityDTO;
 
 public abstract class EntityRepository<E extends Entity_<D>, D extends EntityDTO<E>> {
 

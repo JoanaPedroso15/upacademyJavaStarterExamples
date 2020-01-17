@@ -1,6 +1,6 @@
-package io.altar.jseproject.praticaMysql.models.DTOS;
+package io.altar.stockAngular.models.DTOS;
 
-import io.altar.jseproject.praticaMysql.models.Shelf;
+import io.altar.stockAngular.models.Shelf;
 
 public class ShelfDTO extends EntityDTO<Shelf> {
 	
@@ -10,7 +10,7 @@ public class ShelfDTO extends EntityDTO<Shelf> {
 
 	public ShelfDTO() {}
 
-	public ShelfDTO(Long id, int capacity, float dailyPrice, long productId) {
+	public ShelfDTO(long id, int capacity, float dailyPrice, long productId) {
 		this.id = id;
 		this.capacity = capacity;
 		this.dailyPrice = dailyPrice;

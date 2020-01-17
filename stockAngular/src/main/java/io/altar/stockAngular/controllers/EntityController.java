@@ -1,4 +1,4 @@
-package io.altar.jseproject.praticaMysql.controllers;
+package io.altar.stockAngular.controllers;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,11 +17,11 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import io.altar.jseproject.praticaMysql.models.Entity_;
-import io.altar.jseproject.praticaMysql.models.DTOS.EntityDTO;
-import io.altar.jseproject.praticaMysql.models.converters.EntityConverter;
-import io.altar.jseproject.praticaMysql.repositories.EntityRepository;
-import io.altar.jseproject.praticaMysql.services.EntityService;
+import io.altar.stockAngular.models.Entity_;
+import io.altar.stockAngular.models.DTOS.EntityDTO;
+import io.altar.stockAngular.models.converters.EntityConverter;
+import io.altar.stockAngular.repositories.EntityRepository;
+import io.altar.stockAngular.services.EntityService;
 
 public abstract class EntityController<S extends EntityService<R,E,D>,R extends EntityRepository<E, D>,C extends EntityConverter<E,D>,E extends Entity_<D>,D extends EntityDTO<E>> {
  
@@ -79,7 +79,6 @@ public abstract class EntityController<S extends EntityService<R,E,D>,R extends 
 		} catch (UnsupportedOperationException e) {
 			return Response.status(403).entity(e.getMessage()).build();
 		} catch (IllegalArgumentException e) {
-//			e.printStackTrace();
 			return Response.status(400).entity(e.getMessage()).build();
 		}
 	}

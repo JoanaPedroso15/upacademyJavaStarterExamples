@@ -1,4 +1,4 @@
-package io.altar.jseproject.praticaMysql.services;
+package io.altar.stockAngular.services;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,11 +6,11 @@ import java.util.stream.Collectors;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
-import io.altar.jseproject.praticaMysql.models.Shelf;
-import io.altar.jseproject.praticaMysql.models.DTOS.ShelfDTO;
-import io.altar.jseproject.praticaMysql.models.converters.ShelfConverter;
-import io.altar.jseproject.praticaMysql.repositories.ShelfRepository;
-import io.altar.jseproject.praticaMysql.services.interfaces.ShelfServiceInterface;
+import io.altar.stockAngular.models.Shelf;
+import io.altar.stockAngular.models.DTOS.ShelfDTO;
+import io.altar.stockAngular.models.converters.ShelfConverter;
+import io.altar.stockAngular.repositories.ShelfRepository;
+import io.altar.stockAngular.services.interfaces.ShelfServiceInterface;
 
 @RequestScoped
 public class ShelfService extends EntityService<ShelfRepository, Shelf, ShelfDTO> implements ShelfServiceInterface {
@@ -18,7 +18,7 @@ public class ShelfService extends EntityService<ShelfRepository, Shelf, ShelfDTO
 	@Inject ShelfConverter converter;
 	
 	protected String getEntityClassName() {
-		return Shelf.getName();
+		return Shelf.getClassName();
 	}
 
 	public boolean canDelete(Shelf shelf) {

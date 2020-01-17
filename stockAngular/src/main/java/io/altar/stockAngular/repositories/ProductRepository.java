@@ -1,9 +1,9 @@
-package io.altar.jseproject.praticaMysql.repositories;
+package io.altar.stockAngular.repositories;
 
 import javax.enterprise.context.ApplicationScoped;
 
-import io.altar.jseproject.praticaMysql.models.Product;
-import io.altar.jseproject.praticaMysql.models.DTOS.ProductDTO;
+import io.altar.stockAngular.models.Product;
+import io.altar.stockAngular.models.DTOS.ProductDTO;
 
 @ApplicationScoped
 public class ProductRepository extends EntityRepository<Product, ProductDTO> {

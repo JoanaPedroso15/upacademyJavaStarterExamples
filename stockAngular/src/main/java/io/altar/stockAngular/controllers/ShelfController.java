@@ -1,4 +1,4 @@
-package io.altar.jseproject.praticaMysql.controllers;
+package io.altar.stockAngular.controllers;
 
 import java.util.List;
 
@@ -11,11 +11,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import io.altar.jseproject.praticaMysql.models.Shelf;
-import io.altar.jseproject.praticaMysql.models.DTOS.ShelfDTO;
-import io.altar.jseproject.praticaMysql.models.converters.ShelfConverter;
-import io.altar.jseproject.praticaMysql.repositories.ShelfRepository;
-import io.altar.jseproject.praticaMysql.services.ShelfService;
+import io.altar.stockAngular.models.Shelf;
+import io.altar.stockAngular.models.DTOS.ShelfDTO;
+import io.altar.stockAngular.models.converters.ShelfConverter;
+import io.altar.stockAngular.repositories.ShelfRepository;
+import io.altar.stockAngular.services.ShelfService;
 
 @RequestScoped
 @Path("shelves")

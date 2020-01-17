@@ -1,9 +1,9 @@
-package io.altar.jseproject.praticaMysql.models.DTOS;
+package io.altar.stockAngular.models.DTOS;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import io.altar.jseproject.praticaMysql.models.Product;
+import io.altar.stockAngular.models.Product;
 
 public class ProductDTO extends EntityDTO<Product> {
 	

@@ -1,4 +1,4 @@
-package io.altar.jseproject.praticaMysql.services;
+package io.altar.stockAngular.services;
 
 import java.util.Collection;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
-import io.altar.jseproject.praticaMysql.models.Entity_;
-import io.altar.jseproject.praticaMysql.models.DTOS.EntityDTO;
-import io.altar.jseproject.praticaMysql.repositories.EntityRepository;
-import io.altar.jseproject.praticaMysql.services.interfaces.EntityServiceInterface;
+import io.altar.stockAngular.models.Entity_;
+import io.altar.stockAngular.models.DTOS.EntityDTO;
+import io.altar.stockAngular.repositories.EntityRepository;
+import io.altar.stockAngular.services.interfaces.EntityServiceInterface;
 
 @Transactional
 public abstract class EntityService<R extends EntityRepository<E, D>,E extends Entity_<D>, D extends EntityDTO<E>> implements EntityServiceInterface<E, D> {
