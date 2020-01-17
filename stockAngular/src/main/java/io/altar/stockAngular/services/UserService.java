@@ -20,26 +20,34 @@ public class UserService extends EntityService<UserRepository, User, UserDTO> {
 		String[] hashCode = passwordToHashcode(password);
 
 		user.setName(userDTO.getName());
-		user.setEmail(userDTO.getEmail());
+		user.setEmail(checkEmailUnique(userDTO.getEmail()));
 		user.setHashcode(hashCode[0]);
 		user.setSalt(hashCode[1]);
 		user.setRole(Role.valueOf(userDTO.getRole()));
 		repository.addEntity(user);
 
 	}
+	
+	public String checkEmailUnique(String email) {
+		User user = repository.findUserByEmail(email);
+		if (user != null) {
+			throw new IllegalArgumentException(
+					String.format("Email %s already exist.",email));
+		}
+		return email;
+	}
 
 	public User checkIfUserValid(UserDTO userDTO) throws Exception {
 		User user = repository.findUserByEmail(userDTO.getEmail());
 		if (user == null) {
-			throw new IllegalArgumentException(
-					String.format("No %s with Email [%s].",getEntityClassName() ,userDTO.getEmail()));
+			throw new BadRequestException("Invalid Email/Password");
 		}
 		
 		String key = user.getHashcode();
 		String salt = user.getSalt();
 
 		if (!PasswordUtils.verifyPassword(userDTO.getPassword(), key, salt)) {
-			throw new BadRequestException("Invalid Password");
+			throw new BadRequestException("Invalid Email/Password");
 		}
 
 		return user;
