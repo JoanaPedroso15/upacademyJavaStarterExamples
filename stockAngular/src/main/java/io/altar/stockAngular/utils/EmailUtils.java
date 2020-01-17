@@ -16,7 +16,7 @@ import io.altar.stockAngular.models.DTOS.UserDTO;
 
 @RequestScoped
 public class EmailUtils {
-	private static boolean active = true;
+	private static boolean active = false;
 
 	public static void sendNewUser(UserDTO userDTO) throws IOException {
 		if (!active) {

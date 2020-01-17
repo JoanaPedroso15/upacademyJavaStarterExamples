@@ -19,13 +19,18 @@ import io.altar.stockAngular.utils.EmailUtils;
 
 @RequestScoped
 @Path("users")
-public class UserController extends EntityController<UserService, UserRepository,UserConverter, User, UserDTO> {
+public class UserController extends EntityController<UserService, UserRepository, UserConverter, User, UserDTO> {
 
 	@Override
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response save(UserDTO userDTO){
-		service.createUser(userDTO);
+	public Response save(UserDTO userDTO) {
+		try {
+			service.createUser(userDTO);
+		} catch (Exception e) {
+			return Response.status(Response.Status.FORBIDDEN).entity(e.getMessage()).build();
+		}
+
 		try {
 			EmailUtils.sendNewUser(userDTO);
 		} catch (IOException e) {
@@ -33,12 +38,12 @@ public class UserController extends EntityController<UserService, UserRepository
 		}
 		return Response.ok().build();
 	}
-	
+
 	@POST
 	@Path("login")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response login(UserDTO userDTO){
+	public Response login(UserDTO userDTO) {
 		try {
 			User user = service.checkIfUserValid(userDTO);
 			return Response.ok().entity(converter.toDTO(user)).build();

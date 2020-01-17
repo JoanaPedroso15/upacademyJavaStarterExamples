@@ -3,6 +3,7 @@ package io.altar.stockAngular.models.converters;
 import javax.enterprise.context.RequestScoped;
 
 import io.altar.stockAngular.models.User;
+import io.altar.stockAngular.models.User.Role;
 import io.altar.stockAngular.models.DTOS.UserDTO;
 
 @RequestScoped
@@ -16,6 +17,7 @@ public class UserConverter extends EntityConverter<User, UserDTO> {
 		}
 		user.setName(dto.getName());
 		user.setEmail(dto.getEmail());
+		user.setRole(Role.valueOf(dto.getRole()));
 		return user;
 	}
 
@@ -24,6 +26,7 @@ public class UserConverter extends EntityConverter<User, UserDTO> {
 		return new UserDTO(
 				user.getId(),
 				user.getName(),
-				user.getEmail());
+				user.getEmail(),
+				user.getRole().name());
 	}
 }

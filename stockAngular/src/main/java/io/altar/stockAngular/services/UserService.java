@@ -5,6 +5,7 @@ import javax.ws.rs.BadRequestException;
 
 import io.altar.stockAngular.models.User;
 import io.altar.stockAngular.models.DTOS.UserDTO;
+import io.altar.stockAngular.models.User.Role;
 import io.altar.stockAngular.repositories.UserRepository;
 import io.altar.stockAngular.utils.PasswordUtils;
 
@@ -22,6 +23,7 @@ public class UserService extends EntityService<UserRepository, User, UserDTO> {
 		user.setEmail(userDTO.getEmail());
 		user.setHashcode(hashCode[0]);
 		user.setSalt(hashCode[1]);
+		user.setRole(Role.valueOf(userDTO.getRole()));
 		repository.addEntity(user);
 
 	}

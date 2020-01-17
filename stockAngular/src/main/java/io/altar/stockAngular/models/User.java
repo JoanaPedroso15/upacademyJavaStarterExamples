@@ -1,5 +1,6 @@
 package io.altar.stockAngular.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -13,6 +14,12 @@ import io.altar.stockAngular.models.DTOS.UserDTO;
 		@NamedQuery(name = User.GET_USER_BY_EMAIL, query = "SELECT u FROM User u WHERE u.email=:email") })
 public class User extends Entity_<UserDTO> {
 
+	public enum Role {
+		ADMIN,
+		SUPERUSER,
+		USER
+	}
+	
 	public static final String GET_ALL_USERS = "getAllUsers";
 	public static final String GET_ALL_USERS_IDS = "getAllUsersIds";
 	public static final String GET_USERS_COUNT = "getUsersCount";
@@ -20,11 +27,16 @@ public class User extends Entity_<UserDTO> {
 
 	private static final long serialVersionUID = 1L;
 
+	@Column(nullable=false) 
 	private String name;
+	@Column(unique=true, nullable=false)
 	private String email;
-
+	@Column(nullable=false) 
 	private String hashcode;
+	@Column(nullable=false) 
 	private String salt;
+	@Column(nullable=false) 
+	private Role role;
 
 	public static String getClassName() {
 		return "User";
@@ -60,5 +72,19 @@ public class User extends Entity_<UserDTO> {
 
 	public void setSalt(String salt) {
 		this.salt = salt;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", email=" + email + ", hashcode=" + hashcode + ", salt=" + salt + ", role="
+				+ role + "]";
 	}
 }
