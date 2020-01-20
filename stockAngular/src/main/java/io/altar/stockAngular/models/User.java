@@ -2,6 +2,8 @@ package io.altar.stockAngular.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
@@ -11,7 +13,8 @@ import io.altar.stockAngular.models.DTOS.UserDTO;
 @NamedQueries({ @NamedQuery(name = User.GET_ALL_USERS, query = "SELECT u FROM User u"),
 		@NamedQuery(name = User.GET_ALL_USERS_IDS, query = "SELECT u.id FROM User u"),
 		@NamedQuery(name = User.GET_USERS_COUNT, query = "SELECT COUNT(u.id) FROM User u"),
-		@NamedQuery(name = User.GET_USER_BY_EMAIL, query = "SELECT u FROM User u WHERE u.email=:email") })
+		@NamedQuery(name = User.GET_USER_BY_EMAIL, query = "SELECT u FROM User u WHERE u.email=:email")
+})
 public class User extends Entity_<UserDTO> {
 
 	public enum Role {
@@ -35,6 +38,7 @@ public class User extends Entity_<UserDTO> {
 	private String hashcode;
 	@Column(nullable=false) 
 	private String salt;
+	@Enumerated(EnumType.STRING)
 	@Column(nullable=false) 
 	private Role role;
 

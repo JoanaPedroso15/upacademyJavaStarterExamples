@@ -56,6 +56,7 @@ public abstract class EntityController<S extends EntityService<R,E,D>,R extends 
 	}
 	
 	@GET
+	@Path("all")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<D> getAll() {
 		return service.getAll().stream().map(entity -> converter.toDTO(entity)).collect(Collectors.toList());

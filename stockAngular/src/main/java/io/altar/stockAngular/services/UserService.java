@@ -1,7 +1,10 @@
 package io.altar.stockAngular.services;
 
+import java.util.Collection;
+
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.BadRequestException;
+import javax.ws.rs.core.MultivaluedMap;
 
 import io.altar.stockAngular.models.User;
 import io.altar.stockAngular.models.DTOS.UserDTO;
@@ -37,7 +40,7 @@ public class UserService extends EntityService<UserRepository, User, UserDTO> {
 		return email;
 	}
 
-	public User checkIfUserValid(UserDTO userDTO) throws Exception {
+	public User checkIfUserValid(UserDTO userDTO) {
 		User user = repository.findUserByEmail(userDTO.getEmail());
 		if (user == null) {
 			throw new BadRequestException("Invalid Email/Password");
@@ -69,5 +72,9 @@ public class UserService extends EntityService<UserRepository, User, UserDTO> {
 	protected boolean canDelete(User entity) {
 		// TODO Auto-generated method stub
 		return true;
+	}
+	
+	public Collection<User> get(MultivaluedMap<String, String> params) {
+		return repository.get(params);
 	}
 }
