@@ -23,7 +23,7 @@ import io.altar.stockAngular.models.converters.EntityConverter;
 import io.altar.stockAngular.repositories.EntityRepository;
 import io.altar.stockAngular.services.EntityService;
 
-public abstract class EntityController<S extends EntityService<R,E,D>,R extends EntityRepository<E, D>,C extends EntityConverter<E,D>,E extends Entity_<D>,D extends EntityDTO<E>> {
+public abstract class EntityController<S extends EntityService<R,E>,R extends EntityRepository<E>,C extends EntityConverter<E,D>,E extends Entity_,D extends EntityDTO> {
  
 	@Inject
 	protected S service;

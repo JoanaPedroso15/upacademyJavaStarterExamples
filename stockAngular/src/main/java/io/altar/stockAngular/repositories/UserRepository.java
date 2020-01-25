@@ -14,10 +14,9 @@ import javax.ws.rs.core.MultivaluedMap;
 
 import io.altar.stockAngular.models.User;
 import io.altar.stockAngular.models.User.Role;
-import io.altar.stockAngular.models.DTOS.UserDTO;
 
 @ApplicationScoped
-public class UserRepository extends EntityRepository<User, UserDTO> {
+public class UserRepository extends EntityRepository<User> {
 
 	@Override
 	protected Class<User> getEntityClass() {

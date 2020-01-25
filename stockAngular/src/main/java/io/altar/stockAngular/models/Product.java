@@ -9,13 +9,11 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
-import io.altar.stockAngular.models.DTOS.ProductDTO;
-
 @Entity
 @NamedQueries({ @NamedQuery(name = Product.GET_ALL_PRODUCTS, query = "SELECT p FROM Product p"),
 		@NamedQuery(name = Product.GET_ALL_PRODUCTS_IDS, query = "SELECT p.id FROM Product p"),
 		@NamedQuery(name = Product.GET_PRODUCTS_COUNT, query = "SELECT COUNT(p.id) FROM Product p") })
-public class Product extends Entity_<ProductDTO> {
+public class Product extends Entity_ {
 
 	public static final String GET_ALL_PRODUCTS = "getAllProducts";
 	public static final String GET_ALL_PRODUCTS_IDS = "getAllProductsIds";

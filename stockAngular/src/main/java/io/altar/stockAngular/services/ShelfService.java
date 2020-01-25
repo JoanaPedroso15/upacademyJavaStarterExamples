@@ -13,7 +13,7 @@ import io.altar.stockAngular.repositories.ShelfRepository;
 import io.altar.stockAngular.services.interfaces.ShelfServiceInterface;
 
 @RequestScoped
-public class ShelfService extends EntityService<ShelfRepository, Shelf, ShelfDTO> implements ShelfServiceInterface {
+public class ShelfService extends EntityService<ShelfRepository, Shelf> implements ShelfServiceInterface {
 
 	@Inject ShelfConverter converter;
 	

@@ -1,8 +1,6 @@
 package io.altar.stockAngular.models.DTOS;
 
-import io.altar.stockAngular.models.Shelf;
-
-public class ShelfDTO extends EntityDTO<Shelf> {
+public class ShelfDTO extends EntityDTO {
 	
 	private long productId;
 	private int capacity;

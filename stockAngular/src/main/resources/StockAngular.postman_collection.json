@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "599da521-b622-443d-bc1e-be4ad6863864",
+		"name": "StockAngular",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Store - Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/stockAngular/stores/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"stores",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product - Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/stockAngular/products/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"products",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shelf - Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/stockAngular/shelves/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"shelves",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User - Get with filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/stockAngular/users?name=ZeCarlos&role=ADMIN",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"users"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "ZeCarlos"
+						},
+						{
+							"key": "email",
+							"value": "zecarlos@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "role",
+							"value": "ADMIN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Store - Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Lisboa 3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/stockAngular/stores/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"stores",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product - Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"discountValue\" : \"31\",\n\t\"iva\" : \"0\",\n\t\"pvp\" : \"3\",\n\t\"shelfIds\": []\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/stockAngular/products/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shelf - Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"capacity\" : 5,\n\t\"rentPrice\" : 10,\n\t\"productId\" : 0\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/stockAngular/shelves",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"shelves"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User - Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Ze Carlos\",\n\t\"email\" : \"zecarlos@gmail.com\",\n\t\"password\" : \"zecarlosogrande\",\n\t\"role\": \"ADMIN\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/stockAngular/users/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User - Create with Stores",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Ze Carlos\",\n\t\"email\" : \"zecarlos@gmail.com\",\n\t\"password\" : \"zecarlosogrande\",\n\t\"role\": \"ADMIN\",\n\t\"stores\": [\n    {\n        \"id\": 1,\n        \"name\": \"Lisboa 1\",\n        \"users\": []\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Lisboa 2\",\n        \"users\": []\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Lisboa 3\",\n        \"users\": []\n    }\n]\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/stockAngular/users/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User - Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\" : \"zecarlos@gmail.com\",\n\t\"password\" : \"zecarlosogrande\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/stockAngular/users/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product - Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 1,\n        \"discount\": 0,\n        \"iva\": 0,\n        \"pvp\": 3.0,\n        \"shelfIds\": []\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/stockAngular/products/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shelf - Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"capacity\": 5,\n    \"dailyPrice\": 0,\n    \"productId\": 0\n}\n"
+				},
+				"url": {
+					"raw": "localhost:8080/stockAngular/shelves/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"shelves",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product - DELETE 1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/stockAngular/products/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shelf - DELETE 1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/stockAngular/shelves/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"shelves",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product - Get 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/stockAngular/products/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shelf - Get 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/stockAngular/shelves/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"shelves",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get shelves By ProductId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/stockAngular/shelves/product/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"shelves",
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Product from shelves By ProductId",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/stockAngular/shelves/product/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stockAngular",
+						"shelves",
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

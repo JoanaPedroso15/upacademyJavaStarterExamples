@@ -3,10 +3,9 @@ package io.altar.stockAngular.repositories;
 import javax.enterprise.context.ApplicationScoped;
 
 import io.altar.stockAngular.models.Product;
-import io.altar.stockAngular.models.DTOS.ProductDTO;
 
 @ApplicationScoped
-public class ProductRepository extends EntityRepository<Product, ProductDTO> {
+public class ProductRepository extends EntityRepository<Product> {
 	
 	@Override
 	protected Class<Product> getEntityClass() {

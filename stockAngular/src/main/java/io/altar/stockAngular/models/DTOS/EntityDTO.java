@@ -1,8 +1,6 @@
 package io.altar.stockAngular.models.DTOS;
 
-import io.altar.stockAngular.models.Entity_;
-
-public abstract class EntityDTO<E extends Entity_<?>> {
+public abstract class EntityDTO {
 
 	protected long id;
 

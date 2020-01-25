@@ -4,9 +4,8 @@ import java.util.Collection;
 import java.util.List;
 
 import io.altar.stockAngular.models.Entity_;
-import io.altar.stockAngular.models.DTOS.EntityDTO;
 
-public interface EntityServiceInterface<E extends Entity_<D>, D extends EntityDTO<E>> {
+public interface EntityServiceInterface<E extends Entity_> {
 
 	E get(long id);
 
