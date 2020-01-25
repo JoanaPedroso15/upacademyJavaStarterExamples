@@ -1,10 +1,10 @@
-package io.altar.jseproject.praticaMysql.services;
+package io.altar.relations.services;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
-import io.altar.jseproject.praticaMysql.models.Entity_;
-import io.altar.jseproject.praticaMysql.repositories.EntityRepository;
+import io.altar.relations.models.Entity_;
+import io.altar.relations.repositories.EntityRepository;
 
 @Transactional
 public abstract class EntityService<R extends EntityRepository<E>,E extends Entity_> {

@@ -1,4 +1,4 @@
-package io.altar.jseproject.praticaMysql.models;
+package io.altar.relations.models;
 
 import java.io.Serializable;
 

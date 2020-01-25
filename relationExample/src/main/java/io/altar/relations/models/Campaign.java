@@ -1,4 +1,4 @@
-package io.altar.jseproject.praticaMysql.models;
+package io.altar.relations.models;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class Campaign extends Entity_ {
 
 	private String name;
 	@OneToMany(mappedBy = "campaign")
-	private List<Subscription> Subscriptions;
+	private List<Subscription> subscriptions;
 
 	public String getName() {
 		return name;
@@ -23,11 +23,11 @@ public class Campaign extends Entity_ {
 	}
 
 	public List<Subscription> getSubscriptions() {
-		return Subscriptions;
+		return subscriptions;
 	}
 
 	public void setSubscriptions(List<Subscription> subscriptions) {
-		Subscriptions = subscriptions;
+		this.subscriptions = subscriptions;
 	}
 
 }

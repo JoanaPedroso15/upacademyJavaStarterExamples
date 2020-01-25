@@ -1,9 +1,9 @@
-package io.altar.jseproject.praticaMysql.repositories;
+package io.altar.relations.repositories;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import io.altar.jseproject.praticaMysql.models.Entity_;
+import io.altar.relations.models.Entity_;
 
 public abstract class EntityRepository<E extends Entity_> {
 

@@ -1,8 +1,8 @@
-package io.altar.jseproject.praticaMysql.repositories;
+package io.altar.relations.repositories;
 
 import javax.enterprise.context.ApplicationScoped;
 
-import io.altar.jseproject.praticaMysql.models.Shelf;
+import io.altar.relations.models.Shelf;
 
 @ApplicationScoped
 public class ShelfRepository extends EntityRepository<Shelf> {

@@ -1,4 +1,4 @@
-package io.altar.jseproject.praticaMysql.models;
+package io.altar.relations.models;
 
 import java.util.HashSet;
 import java.util.List;
@@ -10,20 +10,29 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+@NamedQueries({ @NamedQuery(name = Product.GET_ALL_PRODUCTS, query = "SELECT p FROM Product p") })
 public class Product extends Entity_ {
+
+	public static final String GET_ALL_PRODUCTS = "getAllProducts";
 
 	private static final long serialVersionUID = 1L;
 
 	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("product")
 	private List<Shelf> shelves;
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
 	@JoinTable(name = "product_tag", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
 	private Set<Tag> tags = new HashSet<>();
-	@OneToMany(mappedBy = "product")
-	private List<Subscription> Subscriptions;
+	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("product")
+	private Set<Subscription> subscriptions;
 	private int discount;
 	private int iva;
 	private float pvp;
@@ -68,12 +77,12 @@ public class Product extends Entity_ {
 		this.tags = tags;
 	}
 
-	public List<Subscription> getSubscriptions() {
-		return Subscriptions;
+	public Set<Subscription> getSubscriptions() {
+		return subscriptions;
 	}
 
-	public void setSubscriptions(List<Subscription> subscriptions) {
-		Subscriptions = subscriptions;
+	public void setSubscriptions(Set<Subscription> subscriptions) {
+		this.subscriptions = subscriptions;
 	}
 
 	@Override

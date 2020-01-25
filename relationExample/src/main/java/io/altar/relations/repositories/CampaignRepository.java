@@ -1,8 +1,8 @@
-package io.altar.jseproject.praticaMysql.repositories;
+package io.altar.relations.repositories;
 
 import javax.enterprise.context.ApplicationScoped;
 
-import io.altar.jseproject.praticaMysql.models.Campaign;
+import io.altar.relations.models.Campaign;
 
 @ApplicationScoped
 public class CampaignRepository extends EntityRepository<Campaign> {

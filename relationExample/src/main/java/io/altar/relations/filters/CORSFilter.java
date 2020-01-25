@@ -1,4 +1,4 @@
-package io.altar.jseproject.praticaMysql.filters;
+package io.altar.relations.filters;
 
 import java.io.IOException;
 

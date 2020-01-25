@@ -1,25 +1,28 @@
-package io.altar.jseproject.praticaMysql.controllers;
+package io.altar.relations.controllers;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
-import io.altar.jseproject.praticaMysql.models.Campaign;
-import io.altar.jseproject.praticaMysql.models.Product;
-import io.altar.jseproject.praticaMysql.models.Shelf;
-import io.altar.jseproject.praticaMysql.models.Subscription;
-import io.altar.jseproject.praticaMysql.models.Tag;
-import io.altar.jseproject.praticaMysql.services.CampaignService;
-import io.altar.jseproject.praticaMysql.services.ProductService;
-import io.altar.jseproject.praticaMysql.services.ShelfService;
-import io.altar.jseproject.praticaMysql.services.SubscriptionService;
-import io.altar.jseproject.praticaMysql.services.TagService;
+import io.altar.relations.models.Campaign;
+import io.altar.relations.models.Product;
+import io.altar.relations.models.Shelf;
+import io.altar.relations.models.Subscription;
+import io.altar.relations.models.Tag;
+import io.altar.relations.services.CampaignService;
+import io.altar.relations.services.ProductService;
+import io.altar.relations.services.ShelfService;
+import io.altar.relations.services.SubscriptionService;
+import io.altar.relations.services.TagService;
 
 @RequestScoped
 @Path("")
@@ -135,5 +138,19 @@ public class ExamplesController {
 	    s4.setCampaign(c2);
 	    s4.setProduct(p3);
 	    SUBS.create(s4); 
+	}
+	
+	@GET
+	@Path("allProducts")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Product> getAllProducts() {
+		return PS.getAll().stream().collect(Collectors.toList());
+	}
+	
+	@GET
+	@Path("allSubscriptions")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Subscription> getAllSubscriptions() {
+		return SUBS.getAll().stream().collect(Collectors.toList());
 	}
 }

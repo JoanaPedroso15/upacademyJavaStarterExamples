@@ -1,4 +1,4 @@
-package io.altar.jseproject.praticaMysql;
+package io.altar.relations;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
