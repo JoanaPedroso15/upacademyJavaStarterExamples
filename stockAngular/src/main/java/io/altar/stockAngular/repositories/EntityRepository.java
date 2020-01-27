@@ -6,9 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import io.altar.stockAngular.models.Entity_;
-import io.altar.stockAngular.models.DTOS.EntityDTO;
 
-public abstract class EntityRepository<E extends Entity_<D>, D extends EntityDTO<E>> {
+public abstract class EntityRepository<E extends Entity_> {
 
 	@PersistenceContext(unitName = "database")
 	protected EntityManager entityManager;

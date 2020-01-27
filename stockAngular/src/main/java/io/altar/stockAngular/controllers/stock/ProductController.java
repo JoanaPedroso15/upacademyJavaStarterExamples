@@ -1,8 +1,9 @@
-package io.altar.stockAngular.controllers;
+package io.altar.stockAngular.controllers.stock;
 
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.Path;
 
+import io.altar.stockAngular.controllers.EntityController;
 import io.altar.stockAngular.models.Product;
 import io.altar.stockAngular.models.DTOS.ProductDTO;
 import io.altar.stockAngular.models.converters.ProductConverter;

@@ -6,10 +6,9 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.TypedQuery;
 
 import io.altar.stockAngular.models.Shelf;
-import io.altar.stockAngular.models.DTOS.ShelfDTO;
 
 @ApplicationScoped
-public class ShelfRepository extends EntityRepository<Shelf, ShelfDTO> {
+public class ShelfRepository extends EntityRepository<Shelf> {
 
 	@Override
 	protected Class<Shelf> getEntityClass() {

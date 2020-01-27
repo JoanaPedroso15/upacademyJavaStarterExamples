@@ -3,9 +3,7 @@ package io.altar.stockAngular.models.DTOS;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.altar.stockAngular.models.Product;
-
-public class ProductDTO extends EntityDTO<Product> {
+public class ProductDTO extends EntityDTO {
 	
 	private List<Long> shelfIds = new ArrayList<Long>();
 	private int discount;

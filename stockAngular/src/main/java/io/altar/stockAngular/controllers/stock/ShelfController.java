@@ -1,4 +1,4 @@
-package io.altar.stockAngular.controllers;
+package io.altar.stockAngular.controllers.stock;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import io.altar.stockAngular.controllers.EntityController;
 import io.altar.stockAngular.models.Shelf;
 import io.altar.stockAngular.models.DTOS.ShelfDTO;
 import io.altar.stockAngular.models.converters.ShelfConverter;

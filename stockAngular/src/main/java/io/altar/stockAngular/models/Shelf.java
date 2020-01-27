@@ -6,8 +6,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-import io.altar.stockAngular.models.DTOS.ShelfDTO;
-
 @Entity
 @NamedQueries({ @NamedQuery(name = Shelf.GET_ALL_SHELVES, query = "SELECT e FROM Shelf e"),
 		@NamedQuery(name = Shelf.GET_ALL_SHELVES_IDS, query = "SELECT e.id FROM Shelf e"),
@@ -15,7 +13,7 @@ import io.altar.stockAngular.models.DTOS.ShelfDTO;
 		@NamedQuery(name = Shelf.GET_SHELVES_BY_PRODUCT_ID, query = "SELECT s FROM Shelf s WHERE s.product.id = :productId"),
 		@NamedQuery(name = Shelf.GET_EMPTY_SHELVES, query = "SELECT s FROM Shelf s WHERE s.product = null"),
 		@NamedQuery(name = Shelf.SHELVES_PRODUCT_TO_NULL, query = "UPDATE Shelf s SET s.product = null WHERE s.product.id = :productId") })
-public class Shelf extends Entity_<ShelfDTO> {
+public class Shelf extends Entity_ {
 
 	public static final String GET_ALL_SHELVES = "getAllShelves";
 	public static final String GET_ALL_SHELVES_IDS = "getAllShelvesIds";
@@ -57,11 +55,5 @@ public class Shelf extends Entity_<ShelfDTO> {
 
 	public void setDailyPrice(float dailyPrice) {
 		this.dailyPrice = dailyPrice;
-	}
-
-	@Override
-	public String toString() {
-		long productId = (product == null) ? 0 : product.getId();
-		return "Shelf [product=" + productId + ", capacity=" + capacity + ", dailyPrice=" + dailyPrice + "]";
 	}
 }
